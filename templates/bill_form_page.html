@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/main.css">
+    <title>Document</title>
+</head>
+<body>
+        <h2>The Bill Form</h2>
+        <p>Fill in the form and click the button to get the results</p>
+        <form action="/results" method="post">  <!--Upucujemo ovu formu na results. Uvek ide method=post, jer se forme obicno koriste za post-->
+            
+            <!--Promena resultata, da ne bude na html strani rezultat, vec na ovoj strani, bill form page-->
+            <!--Promenimo atribut action na bill_form_page-->
+           
+           {{billform.amount.label}} {{billform.amount}}    <!--billform je varijabla koju smo definisali u main.py, koja je instanca BillForm i amount je jedna od atributa te klase. Dodajemo pre toga billform.amount.label da bi imali labelu za to-->
+           <br>
+           {{billform.period.label}} {{billform.period}}   <!--Sva ova polja su zapravo input polja i tako cemo i da ih stilizujemo-->
+           <hr>  <!--Napravili smo horizontalnu liniju-->
+           <p>First Flatmate</p>
+           {{billform.name1.label}} {{billform.name1}}
+           <br>
+           {{billform.days_in_house1.label}} {{billform.days_in_house1}}
+           <hr>
+           <p>Second Flatmate</p>
+           {{billform.name2.label}} {{billform.name2}}
+           <br>
+           {{billform.days_in_house2.label}} {{billform.days_in_house2}}
+           <hr>
+           {{billform.button}}
+
+           <!--Kopiramo ovde kod iz results html da bi radilo-->
+           <!--Da ne bi imali na ovoj stranici samo pays, dodamo end if uslov, sa viticastim zagradama i sa varijablom result-->
+
+        </form>
+</body>
+</html>
